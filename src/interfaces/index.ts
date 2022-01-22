@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 import Animated from "react-native-reanimated";
 import { Vector } from "react-native-redash";
 
@@ -16,15 +16,17 @@ export interface ButtonProps {
 
 export interface WaveProps {
   side: Side;
-  children: ReactNode;
+  children: ReactElement<SlideProps>;
+  position: Vector<Animated.SharedValue<number>>;
+  isTransitioning: Animated.SharedValue<boolean>;
 }
 
 export interface SliderProps {
   index: number;
   setIndex: (value: number) => void;
-  children: ReactNode;
-  prev?: ReactNode;
-  next?: ReactNode;
+  children: ReactElement<SlideProps>;
+  prev?: ReactElement<SlideProps>;
+  next?: ReactElement<SlideProps>;
 }
 
 export interface SlideProps {
